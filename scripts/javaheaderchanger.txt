@@ -1,0 +1,9 @@
+/*
+    Foilen Infra Resource Composable Application
+    https://github.com/foilen/foilen-infra-resource-composableapplication
+    Copyright (c) 2018 Foilen (http://foilen.com)
+
+    The MIT License
+    http://opensource.org/licenses/MIT
+
+ */
