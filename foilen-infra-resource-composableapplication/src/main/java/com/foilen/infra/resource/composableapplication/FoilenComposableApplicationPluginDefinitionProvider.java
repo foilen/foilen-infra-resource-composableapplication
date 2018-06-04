@@ -15,6 +15,8 @@ import java.util.Collections;
 import com.foilen.infra.plugin.v1.core.context.CommonServicesContext;
 import com.foilen.infra.plugin.v1.core.plugin.IPPluginDefinitionProvider;
 import com.foilen.infra.plugin.v1.core.plugin.IPPluginDefinitionV1;
+import com.foilen.infra.resource.composableapplication.parts.AttachableCronJob;
+import com.foilen.infra.resource.composableapplication.parts.AttachableCronJobEditor;
 import com.foilen.infra.resource.composableapplication.parts.AttachableMariaDB;
 import com.foilen.infra.resource.composableapplication.parts.AttachableMariaDBEditor;
 import com.foilen.infra.resource.composableapplication.parts.AttachableService;
@@ -29,18 +31,22 @@ public class FoilenComposableApplicationPluginDefinitionProvider implements IPPl
         pluginDefinition.addCustomResource(ComposableApplication.class, "Composable Application", //
                 Arrays.asList(ComposableApplication.PROPERTY_NAME), //
                 Collections.emptyList());
-        pluginDefinition.addCustomResource(AttachableService.class, "Attachable Service", //
-                Arrays.asList(AttachableService.PROPERTY_NAME), //
+        pluginDefinition.addCustomResource(AttachableCronJob.class, "Attachable Cron Job", //
+                Arrays.asList(AttachableCronJob.PROPERTY_NAME), //
                 Collections.emptyList());
         pluginDefinition.addCustomResource(AttachableMariaDB.class, "Attachable MariaDB", //
                 Arrays.asList(AttachableMariaDB.PROPERTY_NAME), //
+                Collections.emptyList());
+        pluginDefinition.addCustomResource(AttachableService.class, "Attachable Service", //
+                Arrays.asList(AttachableService.PROPERTY_NAME), //
                 Collections.emptyList());
 
         // Resource editors
         pluginDefinition.addTranslations("/com/foilen/infra/resource/composableapplication/messages");
         pluginDefinition.addResourceEditor(new ComposableApplicationEditor(), ComposableApplicationEditor.EDITOR_NAME);
-        pluginDefinition.addResourceEditor(new AttachableServiceEditor(), AttachableServiceEditor.EDITOR_NAME);
+        pluginDefinition.addResourceEditor(new AttachableCronJobEditor(), AttachableCronJobEditor.EDITOR_NAME);
         pluginDefinition.addResourceEditor(new AttachableMariaDBEditor(), AttachableMariaDBEditor.EDITOR_NAME);
+        pluginDefinition.addResourceEditor(new AttachableServiceEditor(), AttachableServiceEditor.EDITOR_NAME);
 
         // Updater Handler
         pluginDefinition.addUpdateHandler(new ComposableApplicationEventHandler());

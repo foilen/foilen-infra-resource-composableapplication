@@ -19,8 +19,6 @@ import com.foilen.infra.plugin.core.system.junits.JunitsHelper;
 import com.foilen.infra.plugin.v1.core.context.ChangesContext;
 import com.foilen.infra.plugin.v1.core.service.IPResourceService;
 import com.foilen.infra.plugin.v1.core.service.internal.InternalChangeService;
-import com.foilen.infra.resource.composableapplication.ComposableApplication;
-import com.foilen.infra.resource.composableapplication.ComposableApplicationEditor;
 import com.foilen.infra.resource.composableapplication.parts.AttachableService;
 import com.foilen.infra.resource.composableapplication.parts.AttachableServiceEditor;
 import com.foilen.infra.resource.machine.Machine;
