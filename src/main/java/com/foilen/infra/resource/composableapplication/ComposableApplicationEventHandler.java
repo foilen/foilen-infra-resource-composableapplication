@@ -55,7 +55,7 @@ public class ComposableApplicationEventHandler extends AbstractCommonMethodUpdat
             throw new IllegalUpdateException("Must have a singe unix user to run as. Got " + unixUsers.size());
         }
 
-        Integer unixUserId = null;
+        Long unixUserId = null;
         UnixUser unixUser = null;
         if (!unixUsers.isEmpty()) {
             unixUser = unixUsers.get(0);

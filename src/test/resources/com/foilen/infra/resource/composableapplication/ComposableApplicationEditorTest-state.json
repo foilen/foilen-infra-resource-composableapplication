@@ -9,7 +9,7 @@
       "to" : "UnixUser | user1 | /home/user1"
     } ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"applicationDefinition\" : {\n    \"_nextAssetId\" : 1,\n    \"assetsBundles\" : [ ],\n    \"assetsPathAndContent\" : [ ],\n    \"buildSteps\" : [ ],\n    \"command\" : null,\n    \"containerUsersToChangeId\" : [ ],\n    \"copyWhenStartedPathAndContentFiles\" : [ ],\n    \"entrypoint\" : null,\n    \"environments\" : { },\n    \"executeWhenStartedCommands\" : [ ],\n    \"from\" : \"ubuntu:16.04\",\n    \"hostToIpMapping\" : [ ],\n    \"portsEndpoint\" : { },\n    \"portsExposed\" : { },\n    \"portsRedirect\" : [ ],\n    \"runAs\" : 2000,\n    \"services\" : [ {\n      \"command\" : \"java -jar myapp.jar\",\n      \"name\" : \"java-app\",\n      \"runAs\" : null,\n      \"workingDirectory\" : null\n    } ],\n    \"udpPortsExposed\" : { },\n    \"volumes\" : [ ],\n    \"workingDirectory\" : null\n  },\n  \"description\" : \"Composable Application\",\n  \"domainNames\" : [ ],\n  \"executionCronDetails\" : null,\n  \"executionPolicy\" : \"ALWAYS_ON\",\n  \"name\" : \"my_app\",\n  \"resourceCategory\" : \"INFRASTRUCTURE\",\n  \"resourceDescription\" : \"Composable Application\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"my_app\"\n}"
+    "contentInJson" : "{\n  \"applicationDefinition\" : {\n    \"_nextAssetId\" : 1,\n    \"assetsBundles\" : [ ],\n    \"assetsPathAndContent\" : [ ],\n    \"buildSteps\" : [ ],\n    \"command\" : null,\n    \"containerUsersToChangeId\" : [ ],\n    \"copyWhenStartedPathAndContentFiles\" : [ ],\n    \"entrypoint\" : null,\n    \"environments\" : { },\n    \"executeWhenStartedCommands\" : [ ],\n    \"from\" : \"ubuntu:16.04\",\n    \"hostToIpMapping\" : [ ],\n    \"portsEndpoint\" : { },\n    \"portsExposed\" : { },\n    \"portsRedirect\" : [ ],\n    \"runAs\" : 70000,\n    \"services\" : [ {\n      \"command\" : \"java -jar myapp.jar\",\n      \"name\" : \"java-app\",\n      \"runAs\" : null,\n      \"workingDirectory\" : null\n    } ],\n    \"udpPortsExposed\" : { },\n    \"volumes\" : [ ],\n    \"workingDirectory\" : null\n  },\n  \"description\" : \"Composable Application\",\n  \"domainNames\" : [ ],\n  \"executionCronDetails\" : null,\n  \"executionPolicy\" : \"ALWAYS_ON\",\n  \"name\" : \"my_app\",\n  \"resourceCategory\" : \"INFRASTRUCTURE\",\n  \"resourceDescription\" : \"Composable Application\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"my_app\"\n}"
   }, {
     "resource" : "AttachableService | java-app | Service",
     "links" : [ ],
@@ -73,6 +73,6 @@
     "resource" : "UnixUser | user1 | /home/user1",
     "links" : [ ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"hashedPassword\" : null,\n  \"homeFolder\" : \"/home/user1\",\n  \"id\" : 2000,\n  \"name\" : \"user1\",\n  \"resourceCategory\" : \"INFRASTRUCTURE\",\n  \"resourceDescription\" : \"/home/user1\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"user1\",\n  \"shell\" : null\n}"
+    "contentInJson" : "{\n  \"hashedPassword\" : null,\n  \"homeFolder\" : \"/home/user1\",\n  \"id\" : 70000,\n  \"name\" : \"user1\",\n  \"resourceCategory\" : \"INFRASTRUCTURE\",\n  \"resourceDescription\" : \"/home/user1\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"user1\",\n  \"shell\" : null\n}"
   } ]
 }
