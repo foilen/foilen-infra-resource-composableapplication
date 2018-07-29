@@ -11,16 +11,13 @@ package com.foilen.infra.resource.composableapplication.parts;
 
 import java.util.List;
 
-import com.foilen.infra.plugin.v1.core.context.ChangesContext;
 import com.foilen.infra.plugin.v1.core.context.CommonServicesContext;
-import com.foilen.infra.plugin.v1.core.eventhandler.CommonMethodUpdateEventHandlerContext;
 import com.foilen.infra.plugin.v1.core.exception.IllegalUpdateException;
-import com.foilen.infra.plugin.v1.model.base.IPApplicationDefinition;
 import com.foilen.infra.plugin.v1.model.docker.DockerContainerEndpoints;
 import com.foilen.infra.plugin.v1.model.resource.InfraPluginResourceCategory;
 import com.foilen.infra.plugin.v1.model.resource.LinkTypeConstants;
-import com.foilen.infra.resource.application.Application;
 import com.foilen.infra.resource.composableapplication.AttachablePart;
+import com.foilen.infra.resource.composableapplication.AttachablePartContext;
 import com.foilen.infra.resource.machine.Machine;
 import com.foilen.infra.resource.mariadb.MariaDBServer;
 
@@ -40,10 +37,10 @@ public class AttachableMariaDB extends AttachablePart {
     private int localPort = 3306;
 
     @Override
-    public void attachTo(CommonServicesContext services, ChangesContext changes, CommonMethodUpdateEventHandlerContext<?> context, Application application,
-            IPApplicationDefinition applicationDefinition) {
+    public void attachTo(AttachablePartContext context) {
 
         // Get the MariaDBServer (fail if more than one)
+        CommonServicesContext services = context.getServices();
         List<MariaDBServer> servers = services.getResourceService().linkFindAllByFromResourceAndLinkTypeAndToResourceClass(this, LinkTypeConstants.POINTS_TO, MariaDBServer.class);
         if (servers.size() > 1) {
             throw new IllegalUpdateException("There cannot be more than 1 MariaDB Server. Has " + servers.size());
@@ -61,7 +58,7 @@ public class AttachableMariaDB extends AttachablePart {
 
         // Add the infra on the Application
         Machine machine = machines.get(0);
-        applicationDefinition.addPortRedirect(localPort, machine.getName(), server.getName(), DockerContainerEndpoints.MYSQL_TCP);
+        context.getApplicationDefinition().addPortRedirect(localPort, machine.getName(), server.getName(), DockerContainerEndpoints.MYSQL_TCP);
     }
 
     public int getLocalPort() {

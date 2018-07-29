@@ -82,7 +82,11 @@ public class ComposableApplicationEventHandler extends AbstractCommonMethodUpdat
                     .sorted((a, b) -> a.getResourceName().compareTo(b.getResourceName())) //
                     .forEach(attachablePart -> {
                         logger.debug("Attaching {} with type {}", attachablePart.getResourceName(), attachablePart.getClass().getName());
-                        attachablePart.attachTo(services, changes, context, application, applicationDefinition);
+                        AttachablePartContext attachablePartContext = new AttachablePartContext();
+                        attachablePartContext.setServices(services);
+                        attachablePartContext.setApplication(application);
+                        attachablePartContext.setApplicationDefinition(applicationDefinition);
+                        attachablePart.attachTo(attachablePartContext);
                     });
 
             // Link machines

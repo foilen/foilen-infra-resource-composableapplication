@@ -11,16 +11,12 @@ package com.foilen.infra.resource.composableapplication.parts;
 
 import java.util.List;
 
-import com.foilen.infra.plugin.v1.core.context.ChangesContext;
-import com.foilen.infra.plugin.v1.core.context.CommonServicesContext;
-import com.foilen.infra.plugin.v1.core.eventhandler.CommonMethodUpdateEventHandlerContext;
 import com.foilen.infra.plugin.v1.core.exception.IllegalUpdateException;
-import com.foilen.infra.plugin.v1.model.base.IPApplicationDefinition;
 import com.foilen.infra.plugin.v1.model.base.IPApplicationDefinitionService;
 import com.foilen.infra.plugin.v1.model.resource.InfraPluginResourceCategory;
 import com.foilen.infra.plugin.v1.model.resource.LinkTypeConstants;
-import com.foilen.infra.resource.application.Application;
 import com.foilen.infra.resource.composableapplication.AttachablePart;
+import com.foilen.infra.resource.composableapplication.AttachablePartContext;
 import com.foilen.infra.resource.unixuser.UnixUser;
 
 /**
@@ -50,15 +46,14 @@ public class AttachableService extends AttachablePart {
     }
 
     @Override
-    public void attachTo(CommonServicesContext services, ChangesContext changes, CommonMethodUpdateEventHandlerContext<?> context, Application application,
-            IPApplicationDefinition applicationDefinition) {
+    public void attachTo(AttachablePartContext context) {
 
         // Command
         IPApplicationDefinitionService service = new IPApplicationDefinitionService(name, command);
         service.setWorkingDirectory(workingDirectory);
 
         // Unix user
-        List<UnixUser> unixUsers = services.getResourceService().linkFindAllByFromResourceAndLinkTypeAndToResourceClass(this, LinkTypeConstants.RUN_AS, UnixUser.class);
+        List<UnixUser> unixUsers = context.getServices().getResourceService().linkFindAllByFromResourceAndLinkTypeAndToResourceClass(this, LinkTypeConstants.RUN_AS, UnixUser.class);
         if (unixUsers.size() > 1) {
             throw new IllegalUpdateException("Must have a singe unix user to run as. Got " + unixUsers.size());
         }
@@ -66,7 +61,7 @@ public class AttachableService extends AttachablePart {
             service.setRunAs(unixUsers.get(0).getId());
         }
 
-        applicationDefinition.getServices().add(service);
+        context.getApplicationDefinition().getServices().add(service);
     }
 
     public String getCommand() {

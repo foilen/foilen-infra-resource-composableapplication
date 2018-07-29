@@ -9,14 +9,11 @@
  */
 package com.foilen.infra.resource.composableapplication.parts;
 
-import com.foilen.infra.plugin.v1.core.context.ChangesContext;
-import com.foilen.infra.plugin.v1.core.context.CommonServicesContext;
-import com.foilen.infra.plugin.v1.core.eventhandler.CommonMethodUpdateEventHandlerContext;
-import com.foilen.infra.plugin.v1.model.base.IPApplicationDefinition;
 import com.foilen.infra.plugin.v1.model.resource.InfraPluginResourceCategory;
 import com.foilen.infra.resource.application.Application;
 import com.foilen.infra.resource.application.model.ExecutionPolicy;
 import com.foilen.infra.resource.composableapplication.AttachablePart;
+import com.foilen.infra.resource.composableapplication.AttachablePartContext;
 
 /**
  * This is for a Cron Job. <br>
@@ -40,9 +37,9 @@ public class AttachableCronJob extends AttachablePart {
     }
 
     @Override
-    public void attachTo(CommonServicesContext services, ChangesContext changes, CommonMethodUpdateEventHandlerContext<?> context, Application application,
-            IPApplicationDefinition applicationDefinition) {
+    public void attachTo(AttachablePartContext context) {
 
+        Application application = context.getApplication();
         application.setExecutionPolicy(ExecutionPolicy.CRON);
         application.setExecutionCronDetails(time);
 
