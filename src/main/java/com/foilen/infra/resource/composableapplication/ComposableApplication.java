@@ -21,7 +21,7 @@ import com.foilen.infra.resource.website.Website;
  * Links to:
  * <ul>
  * <li>{@link UnixUser}: (optional / 1) RUN_AS - The default user that executes the services on this application</li>
- * <li>{@link Machine}: (optional / many) INSTALLED_ON - The machines where to install that server</li>
+ * <li>{@link Machine}: (optional / many) INSTALLED_ON - The machines where to install that service</li>
  * <li>{@link AttachablePart}: (optional / many) ATTACHED - The parts to attach</li>
  * </ul>
  *

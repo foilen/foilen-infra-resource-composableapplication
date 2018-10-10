@@ -31,7 +31,7 @@ public class AttachableCronJobEditor extends SimpleResourceEditor<AttachableCron
         simpleResourceEditorDefinition.addInputText(AttachableCronJob.PROPERTY_TIME, fieldConfigConsumer -> {
             fieldConfigConsumer.addFormator(CommonFormatting::trimSpacesAround);
             fieldConfigConsumer.addValidator(CommonValidation::validateNotNullOrEmpty);
-            fieldConfigConsumer.addValidator(AttachableValidation::validateCron);
+            fieldConfigConsumer.addValidator(CommonValidation::validateCronTime);
         });
 
     }
