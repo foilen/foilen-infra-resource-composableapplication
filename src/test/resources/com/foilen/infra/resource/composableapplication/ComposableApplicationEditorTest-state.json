@@ -9,12 +9,51 @@
       "to" : "UnixUser | user1 | /home/user1"
     } ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"applicationDefinition\" : {\n    \"_nextAssetId\" : 1,\n    \"assetsBundles\" : [ ],\n    \"assetsPathAndContent\" : [ ],\n    \"buildSteps\" : [ ],\n    \"command\" : null,\n    \"containerUsersToChangeId\" : [ ],\n    \"copyWhenStartedPathAndContentFiles\" : [ ],\n    \"entrypoint\" : null,\n    \"environments\" : { },\n    \"executeWhenStartedCommands\" : [ ],\n    \"from\" : \"ubuntu:16.04\",\n    \"hostToIpMapping\" : [ ],\n    \"portsEndpoint\" : { },\n    \"portsExposed\" : { },\n    \"portsRedirect\" : [ ],\n    \"runAs\" : 70000,\n    \"services\" : [ {\n      \"command\" : \"java -jar myapp.jar\",\n      \"name\" : \"java-app\",\n      \"runAs\" : null,\n      \"workingDirectory\" : null\n    } ],\n    \"udpPortsExposed\" : { },\n    \"volumes\" : [ ],\n    \"workingDirectory\" : null\n  },\n  \"description\" : \"Composable Application\",\n  \"domainNames\" : [ ],\n  \"executionCronDetails\" : null,\n  \"executionPolicy\" : \"ALWAYS_ON\",\n  \"name\" : \"my_app\",\n  \"resourceCategory\" : \"INFRASTRUCTURE\",\n  \"resourceDescription\" : \"Composable Application\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"my_app\"\n}"
+    "content" : {
+      "applicationDefinition" : {
+        "_nextAssetId" : 1,
+        "assetsBundles" : [ ],
+        "assetsPathAndContent" : [ ],
+        "buildSteps" : [ ],
+        "containerUsersToChangeId" : [ ],
+        "copyWhenStartedPathAndContentFiles" : [ ],
+        "environments" : { },
+        "executeWhenStartedCommands" : [ ],
+        "from" : "ubuntu:16.04",
+        "hostToIpMapping" : [ ],
+        "portsEndpoint" : { },
+        "portsExposed" : { },
+        "portsRedirect" : [ ],
+        "runAs" : 70000,
+        "services" : [ {
+          "command" : "java -jar myapp.jar",
+          "name" : "java-app"
+        } ],
+        "udpPortsExposed" : { },
+        "volumes" : [ ]
+      },
+      "description" : "Composable Application",
+      "domainNames" : [ ],
+      "executionPolicy" : "ALWAYS_ON",
+      "meta" : { },
+      "name" : "my_app",
+      "resourceCategory" : "INFRASTRUCTURE",
+      "resourceDescription" : "Composable Application",
+      "resourceName" : "my_app"
+    }
   }, {
     "resource" : "AttachableService | java-app | Service",
     "links" : [ ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"command\" : \"java -jar myapp.jar\",\n  \"name\" : \"java-app\",\n  \"resourceCategory\" : \"INFRASTRUCTURE\",\n  \"resourceDescription\" : \"Service\",\n  \"resourceEditorName\" : \"Attachable Service\",\n  \"resourceName\" : \"java-app\",\n  \"workingDirectory\" : null\n}"
+    "content" : {
+      "command" : "java -jar myapp.jar",
+      "meta" : { },
+      "name" : "java-app",
+      "resourceCategory" : "INFRASTRUCTURE",
+      "resourceDescription" : "Service",
+      "resourceEditorName" : "Attachable Service",
+      "resourceName" : "java-app"
+    }
   }, {
     "resource" : "ComposableApplication | my_app | Composable Application",
     "links" : [ {
@@ -31,7 +70,13 @@
       "to" : "UnixUser | user1 | /home/user1"
     } ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"name\" : \"my_app\",\n  \"resourceCategory\" : \"INFRASTRUCTURE\",\n  \"resourceDescription\" : \"Composable Application\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"my_app\"\n}"
+    "content" : {
+      "meta" : { },
+      "name" : "my_app",
+      "resourceCategory" : "INFRASTRUCTURE",
+      "resourceDescription" : "Composable Application",
+      "resourceName" : "my_app"
+    }
   }, {
     "resource" : "DnsEntry | test1.node.example.com / A | 192.168.0.11",
     "links" : [ {
@@ -39,12 +84,27 @@
       "to" : "Domain | test1.node.example.com | Domain for test1.node.example.com"
     } ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"details\" : \"192.168.0.11\",\n  \"name\" : \"test1.node.example.com\",\n  \"resourceCategory\" : \"NET\",\n  \"resourceDescription\" : \"192.168.0.11\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"test1.node.example.com / A\",\n  \"type\" : \"A\"\n}"
+    "content" : {
+      "details" : "192.168.0.11",
+      "meta" : { },
+      "name" : "test1.node.example.com",
+      "resourceCategory" : "NET",
+      "resourceDescription" : "192.168.0.11",
+      "resourceName" : "test1.node.example.com / A",
+      "type" : "A"
+    }
   }, {
     "resource" : "Domain | example.com | Domain for example.com",
     "links" : [ ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"name\" : \"example.com\",\n  \"resourceCategory\" : \"NET\",\n  \"resourceDescription\" : \"Domain for example.com\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"example.com\",\n  \"reverseName\" : \"com.example\"\n}"
+    "content" : {
+      "meta" : { },
+      "name" : "example.com",
+      "resourceCategory" : "NET",
+      "resourceDescription" : "Domain for example.com",
+      "resourceName" : "example.com",
+      "reverseName" : "com.example"
+    }
   }, {
     "resource" : "Domain | node.example.com | Domain for node.example.com",
     "links" : [ {
@@ -52,7 +112,14 @@
       "to" : "Domain | example.com | Domain for example.com"
     } ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"name\" : \"node.example.com\",\n  \"resourceCategory\" : \"NET\",\n  \"resourceDescription\" : \"Domain for node.example.com\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"node.example.com\",\n  \"reverseName\" : \"com.example.node\"\n}"
+    "content" : {
+      "meta" : { },
+      "name" : "node.example.com",
+      "resourceCategory" : "NET",
+      "resourceDescription" : "Domain for node.example.com",
+      "resourceName" : "node.example.com",
+      "reverseName" : "com.example.node"
+    }
   }, {
     "resource" : "Domain | test1.node.example.com | Domain for test1.node.example.com",
     "links" : [ {
@@ -60,7 +127,14 @@
       "to" : "Domain | node.example.com | Domain for node.example.com"
     } ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"name\" : \"test1.node.example.com\",\n  \"resourceCategory\" : \"NET\",\n  \"resourceDescription\" : \"Domain for test1.node.example.com\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"test1.node.example.com\",\n  \"reverseName\" : \"com.example.node.test1\"\n}"
+    "content" : {
+      "meta" : { },
+      "name" : "test1.node.example.com",
+      "resourceCategory" : "NET",
+      "resourceDescription" : "Domain for test1.node.example.com",
+      "resourceName" : "test1.node.example.com",
+      "reverseName" : "com.example.node.test1"
+    }
   }, {
     "resource" : "Machine | test1.node.example.com | test1.node.example.com (192.168.0.11)",
     "links" : [ {
@@ -68,11 +142,28 @@
       "to" : "DnsEntry | test1.node.example.com / A | 192.168.0.11"
     } ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"name\" : \"test1.node.example.com\",\n  \"publicIp\" : \"192.168.0.11\",\n  \"resourceCategory\" : \"INFRASTRUCTURE\",\n  \"resourceDescription\" : \"test1.node.example.com (192.168.0.11)\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"test1.node.example.com\"\n}"
+    "content" : {
+      "meta" : { },
+      "name" : "test1.node.example.com",
+      "publicIp" : "192.168.0.11",
+      "resourceCategory" : "INFRASTRUCTURE",
+      "resourceDescription" : "test1.node.example.com (192.168.0.11)",
+      "resourceName" : "test1.node.example.com"
+    }
   }, {
     "resource" : "UnixUser | user1 | /home/user1",
     "links" : [ ],
     "tags" : [ ],
-    "contentInJson" : "{\n  \"hashedPassword\" : null,\n  \"homeFolder\" : \"/home/user1\",\n  \"id\" : 70000,\n  \"name\" : \"user1\",\n  \"resourceCategory\" : \"INFRASTRUCTURE\",\n  \"resourceDescription\" : \"/home/user1\",\n  \"resourceEditorName\" : null,\n  \"resourceName\" : \"user1\",\n  \"shell\" : null\n}"
+    "content" : {
+      "homeFolder" : "/home/user1",
+      "id" : 70000,
+      "keepClearPassword" : false,
+      "meta" : { },
+      "name" : "user1",
+      "resourceCategory" : "INFRASTRUCTURE",
+      "resourceDescription" : "/home/user1",
+      "resourceName" : "user1",
+      "shell" : "/bin/bash"
+    }
   } ]
 }
