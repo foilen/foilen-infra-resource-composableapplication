@@ -28,16 +28,16 @@ public class FoilenComposableApplicationPluginDefinitionProvider implements IPPl
     public IPPluginDefinitionV1 getIPPluginDefinition() {
         IPPluginDefinitionV1 pluginDefinition = new IPPluginDefinitionV1("Foilen", "Application - Composable", "A way to create application by attaching parts", "1.0.0");
 
-        pluginDefinition.addCustomResource(ComposableApplication.class, "Composable Application", //
+        pluginDefinition.addCustomResource(ComposableApplication.class, ComposableApplication.RESOURCE_TYPE, //
                 Arrays.asList(ComposableApplication.PROPERTY_NAME), //
                 Collections.emptyList());
-        pluginDefinition.addCustomResource(AttachableCronJob.class, "Attachable Cron Job", //
+        pluginDefinition.addCustomResource(AttachableCronJob.class, AttachableCronJob.RESOURCE_TYPE, //
                 Arrays.asList(AttachableCronJob.PROPERTY_NAME), //
                 Collections.emptyList());
-        pluginDefinition.addCustomResource(AttachableMariaDB.class, "Attachable MariaDB", //
+        pluginDefinition.addCustomResource(AttachableMariaDB.class, AttachableMariaDB.RESOURCE_TYPE, //
                 Arrays.asList(AttachableMariaDB.PROPERTY_NAME), //
                 Collections.emptyList());
-        pluginDefinition.addCustomResource(AttachableService.class, "Attachable Service", //
+        pluginDefinition.addCustomResource(AttachableService.class, AttachableService.RESOURCE_TYPE, //
                 Arrays.asList(AttachableService.PROPERTY_NAME), //
                 Collections.emptyList());
 

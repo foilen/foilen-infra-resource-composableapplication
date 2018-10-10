@@ -30,6 +30,8 @@ import com.foilen.infra.resource.mariadb.MariaDBServer;
  */
 public class AttachableMariaDB extends AttachablePart {
 
+    public static final String RESOURCE_TYPE = "Attachable MariaDB";
+
     public static final String PROPERTY_NAME = "name";
     public static final String PROPERTY_LOCAL_PORT = "localPort";
 

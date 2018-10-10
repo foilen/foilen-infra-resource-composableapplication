@@ -24,6 +24,8 @@ import com.foilen.infra.resource.composableapplication.AttachablePartContext;
  */
 public class AttachableCronJob extends AttachablePart {
 
+    public static final String RESOURCE_TYPE = "Attachable Cron Job";
+
     public static final String PROPERTY_NAME = "name";
     public static final String PROPERTY_DESCRIPTION = "description";
     public static final String PROPERTY_TIME = "time";

@@ -37,6 +37,8 @@ import com.foilen.infra.resource.website.Website;
  */
 public class ComposableApplication extends AbstractIPResource {
 
+    public static final String RESOURCE_TYPE = "Composable Application";
+
     public static final String PROPERTY_NAME = "name";
     public static final String LINK_TYPE_ATTACHED = "ATTACHED";
 

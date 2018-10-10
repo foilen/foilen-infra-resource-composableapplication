@@ -28,6 +28,8 @@ import com.foilen.infra.resource.unixuser.UnixUser;
  */
 public class AttachableService extends AttachablePart {
 
+    public static final String RESOURCE_TYPE = "Attachable Service";
+
     public static final String PROPERTY_NAME = "name";
     public static final String PROPERTY_COMMAND = "command";
     public static final String PROPERTY_WORKING_DIRECTORY = "workingDirectory";
