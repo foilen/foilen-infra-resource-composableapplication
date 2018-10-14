@@ -79,10 +79,7 @@
     }
   }, {
     "resource" : "DnsEntry | test1.node.example.com / A | 192.168.0.11",
-    "links" : [ {
-      "type" : "MANAGES",
-      "to" : "Domain | test1.node.example.com | Domain for test1.node.example.com"
-    } ],
+    "links" : [ ],
     "tags" : [ ],
     "content" : {
       "details" : "192.168.0.11",
@@ -92,48 +89,6 @@
       "resourceDescription" : "192.168.0.11",
       "resourceName" : "test1.node.example.com / A",
       "type" : "A"
-    }
-  }, {
-    "resource" : "Domain | example.com | Domain for example.com",
-    "links" : [ ],
-    "tags" : [ ],
-    "content" : {
-      "meta" : { },
-      "name" : "example.com",
-      "resourceCategory" : "NET",
-      "resourceDescription" : "Domain for example.com",
-      "resourceName" : "example.com",
-      "reverseName" : "com.example"
-    }
-  }, {
-    "resource" : "Domain | node.example.com | Domain for node.example.com",
-    "links" : [ {
-      "type" : "MANAGES",
-      "to" : "Domain | example.com | Domain for example.com"
-    } ],
-    "tags" : [ ],
-    "content" : {
-      "meta" : { },
-      "name" : "node.example.com",
-      "resourceCategory" : "NET",
-      "resourceDescription" : "Domain for node.example.com",
-      "resourceName" : "node.example.com",
-      "reverseName" : "com.example.node"
-    }
-  }, {
-    "resource" : "Domain | test1.node.example.com | Domain for test1.node.example.com",
-    "links" : [ {
-      "type" : "MANAGES",
-      "to" : "Domain | node.example.com | Domain for node.example.com"
-    } ],
-    "tags" : [ ],
-    "content" : {
-      "meta" : { },
-      "name" : "test1.node.example.com",
-      "resourceCategory" : "NET",
-      "resourceDescription" : "Domain for test1.node.example.com",
-      "resourceName" : "test1.node.example.com",
-      "reverseName" : "com.example.node.test1"
     }
   }, {
     "resource" : "Machine | test1.node.example.com | test1.node.example.com (192.168.0.11)",

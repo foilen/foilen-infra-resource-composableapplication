@@ -18,7 +18,7 @@ docker run -ti \
   --volume $FOLDER_PLUGINS_JARS:/plugins \
   foilen-infra-system-app-test-docker:master-SNAPSHOT \
   download-latest-plugins \
-  /plugins application dns domain machine mariadb unixuser website
+  /plugins application dns machine mariadb unixuser website
 
 # Create release
 ./create-local-release.sh
