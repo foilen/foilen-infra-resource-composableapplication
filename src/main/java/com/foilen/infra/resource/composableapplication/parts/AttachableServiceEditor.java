@@ -43,7 +43,8 @@ public class AttachableServiceEditor implements ResourceEditor<AttachableService
     @Override
     public void formatForm(CommonServicesContext servicesCtx, Map<String, String> rawFormValues) {
         CommonFormatting.toLowerCase(rawFormValues, AttachableService.PROPERTY_NAME);
-        CommonFormatting.trimSpaces(rawFormValues, AttachableService.PROPERTY_NAME, AttachableService.PROPERTY_COMMAND, AttachableService.PROPERTY_WORKING_DIRECTORY);
+        CommonFormatting.trimSpaces(rawFormValues, AttachableService.PROPERTY_NAME, AttachableService.PROPERTY_WORKING_DIRECTORY);
+        CommonFormatting.trimSpacesAround(rawFormValues, AttachableService.PROPERTY_COMMAND);
     }
 
     @Override
