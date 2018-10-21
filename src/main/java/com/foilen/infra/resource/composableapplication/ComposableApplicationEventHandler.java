@@ -9,6 +9,7 @@
  */
 package com.foilen.infra.resource.composableapplication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.foilen.infra.plugin.v1.core.context.ChangesContext;
@@ -25,6 +26,7 @@ import com.foilen.infra.resource.machine.Machine;
 import com.foilen.infra.resource.unixuser.UnixUser;
 import com.foilen.infra.resource.website.Website;
 import com.foilen.smalltools.tools.CollectionsTools;
+import com.foilen.smalltools.tools.StringTools;
 
 public class ComposableApplicationEventHandler extends AbstractCommonMethodUpdateEventHandler<ComposableApplication> {
 
@@ -45,10 +47,34 @@ public class ComposableApplicationEventHandler extends AbstractCommonMethodUpdat
         ComposableApplication composableApplication = context.getResource();
 
         // Get the links
-        List<Machine> machines = resourceService.linkFindAllByFromResourceAndLinkTypeAndToResourceClass(composableApplication, LinkTypeConstants.INSTALLED_ON, Machine.class);
-        List<UnixUser> unixUsers = resourceService.linkFindAllByFromResourceAndLinkTypeAndToResourceClass(composableApplication, LinkTypeConstants.RUN_AS, UnixUser.class);
-        List<AttachablePart> attachableParts = resourceService.linkFindAllByFromResourceAndLinkTypeAndToResourceClass(composableApplication, ComposableApplication.LINK_TYPE_ATTACHED,
-                AttachablePart.class);
+        List<Machine> machines = new ArrayList<>();
+        List<UnixUser> unixUsers = new ArrayList<>();
+        List<AttachablePart> attachableParts = new ArrayList<>();
+
+        resourceService.linkFindAllByFromResource(composableApplication).stream() //
+                .sorted((a, b) -> StringTools.safeComparisonNullFirst(a.getB().getResourceName(), b.getB().getResourceName())) //
+                .forEach(link -> {
+                    switch (link.getA()) {
+                    case LinkTypeConstants.INSTALLED_ON:
+                        if (link.getB() instanceof Machine) {
+                            machines.add((Machine) link.getB());
+                        }
+                        break;
+                    case LinkTypeConstants.RUN_AS:
+                        if (link.getB() instanceof UnixUser) {
+                            unixUsers.add((UnixUser) link.getB());
+                        }
+                        break;
+                    case ComposableApplication.LINK_TYPE_ATTACHED:
+                        if (link.getB() instanceof AttachablePart) {
+                            attachableParts.add((AttachablePart) link.getB());
+                        }
+                        break;
+
+                    default:
+                        break;
+                    }
+                });
 
         // Validate links
         boolean proceed = true;
